@@ -4,6 +4,7 @@ import Header from '../../common/header/Header';
 import './Home.css';
 import SingleLineImageList from './MovieList';
 import moviesData from '../../common/moviesData';
+import TitlebarImageList from './HomeImageList';
 
 class Home extends Component {
 
@@ -18,6 +19,14 @@ class Home extends Component {
                 <Header />
                 <span className='heading'>Upcoming movies</span>
                 <SingleLineImageList moviesData={this.state.data}/>
+                <div className='flex-container'>
+                    <div className='homeImages'>
+                        <TitlebarImageList moviesData={this.state.data} />
+                    </div>
+                    <div className='movieFilter'>
+                        
+                    </div>
+                </div>
             </div>
         )
     }
