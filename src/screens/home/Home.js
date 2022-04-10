@@ -5,6 +5,7 @@ import './Home.css';
 import SingleLineImageList from './MovieList';
 import moviesData from '../../common/moviesData';
 import TitlebarImageList from './HomeImageList';
+import SimpleCard from '../MovieFilter';
 
 class Home extends Component {
 
@@ -18,13 +19,13 @@ class Home extends Component {
             <div>
                 <Header />
                 <span className='heading'>Upcoming movies</span>
-                <SingleLineImageList moviesData={this.state.data}/>
+                <SingleLineImageList moviesData={this.state.data} />
                 <div className='flex-container'>
                     <div className='homeImages'>
                         <TitlebarImageList moviesData={this.state.data} />
                     </div>
                     <div className='movieFilter'>
-                        
+                        <SimpleCard />
                     </div>
                 </div>
             </div>
