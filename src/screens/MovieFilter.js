@@ -35,12 +35,11 @@ const useStyles = makeStyles((theme) => ({
 
 export default function SimpleCard() {
   const classes = useStyles();
-  const bull = <span className={classes.bullet}>•</span>;
 
   return (
     <Card className={classes.root}>
       <CardContent>
-        <Typography className={classes.title} color="textSecondary" gutterBottom>
+        <Typography className={classes.title} gutterBottom>
           FIND MOVIES BY:
         </Typography>
         
