@@ -6,7 +6,7 @@ import MenuItem from '@material-ui/core/MenuItem';
 import ListItemText from '@material-ui/core/ListItemText';
 import Select from '@material-ui/core/Select';
 import Checkbox from '@material-ui/core/Checkbox';
-import artists from './artists';
+import {userSelection} from './MovieFilter';
 
 const ITEM_HEIGHT = 48;
 const ITEM_PADDING_TOP = 8;
@@ -19,10 +19,13 @@ const MenuProps = {
   },
 };
 
-export default function ArtistSelect() {
+export default function ArtistSelect(props) {
   const [artistName, setArtistName] = React.useState([]);
 
   const handleChange = (e) => {
+    if(!userSelection.artists.includes(e.target.value)) {
+      userSelection.artists = e.target.value;
+    }
     setArtistName(e.target.value);
   };
 
@@ -40,7 +43,7 @@ export default function ArtistSelect() {
           MenuProps={MenuProps}
           style={{width:'240px'}}
         >
-          {artists.map((artist) => (
+          {props.artists.map((artist) => (
             <MenuItem key={artist.id} value={(artist.first_name+" "+artist.last_name)}>
               <Checkbox checked={artistName.indexOf(artist.first_name+" "+artist.last_name) > -1} />
               <ListItemText primary={(artist.first_name+" "+artist.last_name)} />
