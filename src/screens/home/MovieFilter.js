@@ -9,8 +9,6 @@ import {
   FormControl,
   Input,
   InputLabel,
-  Select,
-  MenuItem,
   TextField,
 } from "@material-ui/core";
 import GenreSelect from "./GenreSelect";
@@ -82,7 +80,6 @@ export default function MovieFilter(props) {
             id="dateStart"
             label="Release Date Start"
             type="date"
-            defaultValue="yyyy-mm-dd"
             className={classes.textField}
             InputLabelProps={{ shrink: true }}
             onChange={(e) => {
@@ -96,7 +93,6 @@ export default function MovieFilter(props) {
             id="dateEnd"
             label="Release Date End"
             type="date"
-            defaultValue="yyyy-mm-dd"
             className={classes.textField}
             InputLabelProps={{ shrink: true }}
             onChange={(e) => {

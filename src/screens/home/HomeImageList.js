@@ -54,7 +54,7 @@ export default function TitlebarImageList(props) {
             <img src={item.poster_url} alt={item.title} />
             <ImageListItemBar
               title={item.title}
-              subtitle={<span>Release Date: {Date(item.release_date)}</span>}
+              subtitle={<span>Release Date: {new Date(item.release_date).toDateString()}</span>}
               actionIcon={
                 <IconButton
                   aria-label={`info about ${item.title}`}

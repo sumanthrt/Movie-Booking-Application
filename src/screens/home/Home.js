@@ -37,9 +37,13 @@ class Home extends Component {
         if (
           movie.title.toLowerCase() === userSelection.name.toLowerCase() ||
           movie.genres.some((genre) => userSelection.genres.includes(genre)) ||
+          parseInt(new Date(movie.release_date).getTime()) <=
+            parseInt(new Date(userSelection.releaseDateEnd).getTime()) ||
+          parseInt(new Date(movie.release_date).getTime()) >=
+            parseInt(new Date(userSelection.releaseDateStart).getTime()) ||
           movie.artists.some((artist) =>
             userSelection.artists.includes(
-              `${artist.first_name} ${artists.last_name}`
+              `${artist.first_name} ${artist.last_name}`
             )
           )
         ) {
