@@ -52,7 +52,7 @@ export default function SingleLineImageList(props) {
       <ImageList className={classes.imageList} cols={6} rowHeight={250}>
         {props.moviesData.map((item) => (
           <ImageListItem key={item.poster_url}>
-            <Link to="/details">
+            <Link to="/details" state={{movie:item}}>
               <img src={item.poster_url} alt={item.title} />
             </Link>
             <ImageListItemBar
