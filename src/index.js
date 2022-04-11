@@ -2,9 +2,17 @@ import React from "react";
 import ReactDOM from "react-dom";
 import reportWebVitals from "./reportWebVitals";
 import Home from "./screens/home/Home";
+import Details from "./screens/details/Details";
+import { BrowserRouter as Router, Routes, Route,} from "react-router-dom";
+
 ReactDOM.render(
   <React.StrictMode>
-    <Home />
+    <Router>
+      <Routes>
+        <Route path='/' element={<Home />} />
+        <Route path='details' element={<Details />} />
+      </Routes>
+    </Router>
   </React.StrictMode>,
   document.getElementById("root")
 );

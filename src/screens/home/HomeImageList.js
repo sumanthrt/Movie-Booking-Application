@@ -3,6 +3,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import ImageList from "@material-ui/core/ImageList";
 import ImageListItem from "@material-ui/core/ImageListItem";
 import ImageListItemBar from "@material-ui/core/ImageListItemBar";
+import { Link } from "react-router-dom";
 import IconButton from "@material-ui/core/IconButton";
 import InfoIcon from "@material-ui/icons/Info";
 
@@ -49,19 +50,17 @@ export default function TitlebarImageList(props) {
         <ImageListItem key="Subheader" cols={4} style={{ height: "auto" }}>
           {/* <ListSubheader component="div">December</ListSubheader> */}
         </ImageListItem>
-        {props.moviesData.map((item) => (
-          <ImageListItem className="homePageImage" key={item.img}>
-            <img src={item.poster_url} alt={item.title} />
+        {props.moviesData.map((movie) => (
+          <ImageListItem className="homePageImage" key={movie.title}>
+            <Link to="/details" state={{ movie: movie }}>
+              <img src={movie.poster_url} alt={movie.title} />
+            </Link>
             <ImageListItemBar
-              title={item.title}
-              subtitle={<span>Release Date: {new Date(item.release_date).toDateString()}</span>}
-              actionIcon={
-                <IconButton
-                  aria-label={`info about ${item.title}`}
-                  className={classes.icon}
-                >
-                  <InfoIcon />
-                </IconButton>
+              title={movie.title}
+              subtitle={
+                <span>
+                  Release Date: {new Date(movie.release_date).toDateString()}
+                </span>
               }
             />
           </ImageListItem>
