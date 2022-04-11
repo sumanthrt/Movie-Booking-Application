@@ -3,9 +3,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import ImageList from "@material-ui/core/ImageList";
 import ImageListItem from "@material-ui/core/ImageListItem";
 import ImageListItemBar from "@material-ui/core/ImageListItemBar";
-// import IconButton from '@material-ui/core/IconButton';
-// import StarBorderIcon from '@material-ui/icons/StarBorder';
-// import itemData from './itemData';
+import { Link } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -54,7 +52,9 @@ export default function SingleLineImageList(props) {
       <ImageList className={classes.imageList} cols={6} rowHeight={250}>
         {props.moviesData.map((item) => (
           <ImageListItem key={item.poster_url}>
-            <img src={item.poster_url} alt={item.title} />
+            <Link to="/details">
+              <img src={item.poster_url} alt={item.title} />
+            </Link>
             <ImageListItemBar
               title={item.title}
               classes={
