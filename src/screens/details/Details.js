@@ -9,18 +9,12 @@ import {
 } from "@material-ui/core";
 import { Link, useLocation } from "react-router-dom";
 import Trailer from "./Trailer";
-import StarBorderIcon from "@material-ui/icons/StarBorder";
+import ReactStars from "react-rating-stars-component";
 import Header from "../../common/header/Header";
 
-function starRating(e) {
-  var clickedId = e.target.value.slice(1);
-  for (var i = 1; i <= clickedId; i++) {
-    document.getElementById("star".concat("", i)).style.color = "yellow";
-  }
-  for (var x = 5; x > clickedId; x--) {
-    document.getElementById("star".concat("", x)).style.color = "black";
-  }
-}
+const ratingChanged = (newRating) => {
+  console.log(newRating);
+};
 
 function Details() {
   const location = useLocation();
@@ -75,11 +69,12 @@ function Details() {
           <Typography>
             <strong>Rate this movie: </strong>
             <br />
-            <StarBorderIcon onClick={starRating} id="star1" />
-            <StarBorderIcon onClick={starRating} id="star2" />
-            <StarBorderIcon onClick={starRating} id="star3" />
-            <StarBorderIcon onClick={starRating} id="star4" />
-            <StarBorderIcon onClick={starRating} id="star5" />
+            <ReactStars
+              count={5}
+              onChange={ratingChanged}
+              size={24}
+              activeColor="#ffd700"
+            />
           </Typography>
           <Typography className="topMargin">
             <strong>Artists: </strong>
