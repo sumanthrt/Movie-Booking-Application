@@ -3,9 +3,9 @@ import "./Details.css";
 import "../../common/header/Header";
 import {
   Typography,
-  ImageList,
-  ImageListItemBar,
-  ImageListItem,
+  GridList,
+  GridListTile,
+  GridListTileBar,
 } from "@material-ui/core";
 import { Link, useLocation } from "react-router-dom";
 import Trailer from "./Trailer";
@@ -83,16 +83,16 @@ function Details() {
           </Typography>
           <Typography className="topMargin">
             <strong>Artists: </strong>
-            <ImageList cols={2}>
+            <GridList cols={2}>
               {data.artists.map((artist) => (
-                <ImageListItem key={artist.id}>
+                <GridListTile key={artist.id}>
                   <img src={artist.profile_url}></img>
-                  <ImageListItemBar
+                  <GridListTileBar
                     title={artist.first_name + " " + artist.last_name}
-                  ></ImageListItemBar>
-                </ImageListItem>
+                  ></GridListTileBar>
+                </GridListTile>
               ))}
-            </ImageList>
+            </GridList>
           </Typography>
         </div>
       </div>
